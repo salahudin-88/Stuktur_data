@@ -68,7 +68,7 @@ class CircularDoublyLinkedList {
         }
         size++;
         
-        System.out.println("✅ Berita berhasil ditambahkan!");
+        System.out.println(" Berita berhasil ditambahkan!");
         tampilVisualLinkedList();
         tampilStatusCurrent();
     }
@@ -76,12 +76,12 @@ class CircularDoublyLinkedList {
     // Method untuk menampilkan visualisasi Circular Doubly Linked List
     public void tampilVisualLinkedList() {
         if (head == null) {
-            System.out.println("\n📊 VISUALISASI CIRCULAR DOUBLY LINKED LIST:");
+            System.out.println("\n VISUALISASI CIRCULAR DOUBLY LINKED LIST:");
             System.out.println("   [ KOSONG ]");
             return;
         }
         
-        System.out.println("\n📊 VISUALISASI CIRCULAR DOUBLY LINKED LIST:");
+        System.out.println("\n VISUALISASI CIRCULAR DOUBLY LINKED LIST:");
         System.out.println("   (prev ← [node] → next)");
         System.out.println();
         
@@ -96,7 +96,7 @@ class CircularDoublyLinkedList {
             System.out.println("\n   ┌─────────────────────────────────┐");
             System.out.println("   │         NODE " + nomor + "                  │");
             if (temp.isCurrent) {
-                System.out.println("   │         [CURRENT] ✅             │");
+                System.out.println("   │         [CURRENT]             │");
             }
             System.out.println("   ├─────────────────────────────────┤");
             System.out.println("   │ prev: \"" + temp.prev.berita + "\"");
@@ -114,7 +114,7 @@ class CircularDoublyLinkedList {
         } while (temp != head);
         
         // Tampilkan hubungan circular
-        System.out.println("\n   🔄 HUBUNGAN CIRCULAR:");
+        System.out.println("\n    HUBUNGAN CIRCULAR:");
         System.out.println("   TAIL.next → HEAD: \"" + tail.next.berita + "\"");
         System.out.println("   HEAD.prev → TAIL: \"" + head.prev.berita + "\"");
         System.out.println();
@@ -126,7 +126,7 @@ class CircularDoublyLinkedList {
         nomor = 1;
         do {
             if (temp.isCurrent) {
-                System.out.print("▶[" + nomor + ":" + temp.berita + "]◀");
+                System.out.print("[" + nomor + ":" + temp.berita + "]");
             } else {
                 System.out.print(" [" + nomor + ":" + temp.berita + "] ");
             }
@@ -150,21 +150,21 @@ class CircularDoublyLinkedList {
     // Method untuk menampilkan status current
     private void tampilStatusCurrent() {
         if (current != null) {
-            System.out.println("📌 Berita CURRENT saat ini: " + current.berita);
+            System.out.println(" Berita CURRENT saat ini: " + current.berita);
         } else {
-            System.out.println("📌 Tidak ada berita CURRENT");
+            System.out.println(" Tidak ada berita CURRENT");
         }
     }
     
     // Method untuk menampilkan detail berita yang akan dihapus
     public void tampilDetailBeritaUntukHapus(int nomor) {
         if (head == null) {
-            System.out.println("❌ Tidak ada berita untuk dihapus!");
+            System.out.println(" Tidak ada berita untuk dihapus!");
             return;
         }
         
         if (nomor < 1 || nomor > size) {
-            System.out.println("❌ Nomor urut tidak valid!");
+            System.out.println(" Nomor urut tidak valid!");
             return;
         }
         
@@ -180,7 +180,7 @@ class CircularDoublyLinkedList {
         System.out.println("╠════════════════════════════════════╣");
         System.out.println("║ Nomor urut : " + nomor + "                       ║");
         if (nodeToDelete.isCurrent) {
-            System.out.println("║ Status     : CURRENT ✅             ║");
+            System.out.println("║ Status     : CURRENT              ║");
         } else {
             System.out.println("║ Status     : -                      ║");
         }
@@ -196,12 +196,12 @@ class CircularDoublyLinkedList {
     // Method untuk menghapus berita berdasarkan nomor urut
     public boolean hapusBerita(int nomor, boolean konfirmasi) {
         if (head == null) {
-            System.out.println("❌ Tidak ada berita untuk dihapus!");
+            System.out.println(" Tidak ada berita untuk dihapus!");
             return false;
         }
         
         if (nomor < 1 || nomor > size) {
-            System.out.println("❌ Nomor urut tidak valid!");
+            System.out.println(" Nomor urut tidak valid!");
             return false;
         }
         
@@ -260,14 +260,14 @@ class CircularDoublyLinkedList {
         }
         
         size--;
-        System.out.println("\n✅ Berita nomor " + nomor + " BERHASIL DIHAPUS!");
-        System.out.println("📝 Berita yang dihapus: " + beritaYangDihapus);
+        System.out.println("\n Berita nomor " + nomor + " BERHASIL DIHAPUS!");
+        System.out.println(" Berita yang dihapus: " + beritaYangDihapus);
         
         if (size > 0) {
             tampilVisualLinkedList();
             tampilStatusCurrent();
         } else {
-            System.out.println("\n📊 VISUALISASI CIRCULAR DOUBLY LINKED LIST:");
+            System.out.println("\n VISUALISASI CIRCULAR DOUBLY LINKED LIST:");
             System.out.println("   [ KOSONG ]");
         }
         
@@ -277,7 +277,7 @@ class CircularDoublyLinkedList {
     // Method untuk menampilkan berita secara CONTINUOUS FORWARD (tidak berhenti)
     public void tampilForwardContinuous() throws InterruptedException {
         if (head == null) {
-            System.out.println("❌ Tidak ada berita untuk ditampilkan!");
+            System.out.println("Tidak ada berita untuk ditampilkan!");
             return;
         }
         
@@ -287,7 +287,7 @@ class CircularDoublyLinkedList {
         System.out.println("║         UNTUK BERHENTI)            ║");
         System.out.println("╚════════════════════════════════════╝");
         
-        System.out.println("\n🔄 PROSES TRAVERSAL FORWARD:");
+        System.out.println("\n PROSES TRAVERSAL FORWARD:");
         System.out.println("   Bergerak menggunakan pointer next");
         System.out.println("   Akan terus berputar (circular)");
         
@@ -314,7 +314,7 @@ class CircularDoublyLinkedList {
             
             do {
                 if (temp.isCurrent) {
-                    System.out.print("▶ "); // Menandai current
+                    System.out.print("? "); // Menandai current
                 } else {
                     System.out.print("  ");
                 }
@@ -326,7 +326,7 @@ class CircularDoublyLinkedList {
                 nomor++;
                 
                 if (temp == head) {
-                    System.out.println("\n↻ Kembali ke awal (circular)");
+                    System.out.println("\n Kembali ke awal (circular)");
                 }
             } while (temp != head && running);
             
@@ -337,7 +337,7 @@ class CircularDoublyLinkedList {
             }
         }
         
-        System.out.println("\n⏹️  Perputaran berita dihentikan oleh user.");
+        System.out.println("\n  Perputaran berita dihentikan oleh user.");
         System.out.println("   Total " + (putaran-1) + " putaran selesai");
         System.out.println("══════════════ SELESAI ══════════════\n");
     }
@@ -345,7 +345,7 @@ class CircularDoublyLinkedList {
     // Method untuk menampilkan berita secara CONTINUOUS BACKWARD (tidak berhenti)
     public void tampilBackwardContinuous() throws InterruptedException {
         if (head == null) {
-            System.out.println("❌ Tidak ada berita untuk ditampilkan!");
+            System.out.println(" Tidak ada berita untuk ditampilkan!");
             return;
         }
         
@@ -355,7 +355,7 @@ class CircularDoublyLinkedList {
         System.out.println("║         UNTUK BERHENTI)            ║");
         System.out.println("╚════════════════════════════════════╝");
         
-        System.out.println("\n🔄 PROSES TRAVERSAL BACKWARD:");
+        System.out.println("\n PROSES TRAVERSAL BACKWARD:");
         System.out.println("   Bergerak menggunakan pointer prev");
         System.out.println("   Akan terus berputar (circular)");
         
@@ -382,7 +382,7 @@ class CircularDoublyLinkedList {
             
             do {
                 if (temp.isCurrent) {
-                    System.out.print("◀ "); // Menandai current
+                    System.out.print("? "); // Menandai current
                 } else {
                     System.out.print("  ");
                 }
@@ -405,7 +405,7 @@ class CircularDoublyLinkedList {
             }
         }
         
-        System.out.println("\n⏹️  Perputaran berita dihentikan oleh user.");
+        System.out.println("\n  Perputaran berita dihentikan oleh user.");
         System.out.println("   Total " + (putaran-1) + " putaran selesai");
         System.out.println("══════════════ SELESAI ══════════════\n");
     }
@@ -413,16 +413,16 @@ class CircularDoublyLinkedList {
     // Method untuk menampilkan berita tertentu
     public void tampilBeritaTertentu(int nomor) {
         if (head == null) {
-            System.out.println("❌ Tidak ada berita!");
+            System.out.println(" Tidak ada berita!");
             return;
         }
         
         if (nomor < 1 || nomor > size) {
-            System.out.println("❌ Nomor urut tidak valid!");
+            System.out.println(" Nomor urut tidak valid!");
             return;
         }
         
-        System.out.println("\n🔍 PROSES PENCARIAN:");
+        System.out.println("\n PROSES PENCARIAN:");
         System.out.println("   Mencari node nomor " + nomor + "...");
         
         Node nodeToShow = getNodeByNomor(nomor);
@@ -445,16 +445,16 @@ class CircularDoublyLinkedList {
     // Method untuk mengubah current ke nomor tertentu
     public void setCurrent(int nomor) {
         if (head == null) {
-            System.out.println("❌ Tidak ada berita!");
+            System.out.println(" Tidak ada berita!");
             return;
         }
         
         if (nomor < 1 || nomor > size) {
-            System.out.println("❌ Nomor urut tidak valid!");
+            System.out.println(" Nomor urut tidak valid!");
             return;
         }
         
-        System.out.println("\n🔄 PROSES UPDATE CURRENT:");
+        System.out.println("\n PROSES UPDATE CURRENT:");
         System.out.println("   Current lama: \"" + (current != null ? current.berita : "tidak ada") + "\"");
         
         // Hapus tanda current dari node sebelumnya
@@ -468,7 +468,7 @@ class CircularDoublyLinkedList {
         current.isCurrent = true;
         
         System.out.println("   Memberikan status CURRENT ke node \"" + current.berita + "\"");
-        System.out.println("✅ Current berpindah ke berita nomor " + nomor);
+        System.out.println(" Current berpindah ke berita nomor " + nomor);
         
         tampilVisualLinkedList();
         tampilStatusCurrent();
@@ -477,7 +477,7 @@ class CircularDoublyLinkedList {
     // Method untuk menampilkan semua berita
     public void tampilSemuaBerita() {
         if (head == null) {
-            System.out.println("❌ Tidak ada berita!");
+            System.out.println(" Tidak ada berita!");
             return;
         }
         
@@ -486,28 +486,28 @@ class CircularDoublyLinkedList {
     
     // Method untuk menampilkan penjelasan Circular Doubly Linked List
     public void tampilPenjelasanCDLL() {
-        System.out.println("\n📚 PENJELASAN CIRCULAR DOUBLY LINKED LIST:");
+        System.out.println("\n PENJELASAN CIRCULAR DOUBLY LINKED LIST:");
         System.out.println("==========================================");
         System.out.println("Circular Doubly Linked List adalah struktur data linear dimana:");
         System.out.println();
-        System.out.println("1️⃣  DOUBLY LINKED:");
+        System.out.println("1️  DOUBLY LINKED:");
         System.out.println("   • Setiap node memiliki 2 pointer: prev dan next");
         System.out.println("   • prev → menunjuk ke node sebelumnya");
         System.out.println("   • next → menunjuk ke node setelahnya");
         System.out.println("   • Memungkinkan traversali 2 arah (maju & mundur)");
         System.out.println();
-        System.out.println("2️⃣  CIRCULAR:");
+        System.out.println("2️  CIRCULAR:");
         System.out.println("   • Node terakhir (TAIL) menunjuk ke node pertama (HEAD)");
         System.out.println("   • Node pertama (HEAD) juga menunjuk ke node terakhir (TAIL)");
         System.out.println("   • Tidak ada node yang menunjuk ke NULL");
         System.out.println("   • Membentuk lingkaran/cycle");
         System.out.println();
-        System.out.println("3️⃣  KEUNGGULAN:");
+        System.out.println("3️  KEUNGGULAN:");
         System.out.println("   • Traversal maju & mundur mudah");
         System.out.println("   • Insert & delete di awal/akhir cepat (O(1))");
         System.out.println("   • Cocok untuk aplikasi yang memerlukan perputaran (seperti teks berjalan)");
         System.out.println();
-        System.out.println("4️⃣  IMPLEMENTASI DI PROGRAM INI:");
+        System.out.println("4️  IMPLEMENTASI DI PROGRAM INI:");
         System.out.println("   • Setiap node menyimpan teks berita");
         System.out.println("   • Ada pointer CURRENT untuk berita yang sedang 'on air'");
         System.out.println("   • Traversal forward menggunakan pointer next");
@@ -536,7 +536,7 @@ public class TeksBerjalan {
         System.out.println("║    (Circular Doubly Linked List)  ║");
         System.out.println("╚════════════════════════════════════╝");
         System.out.println("Selamat datang di program teks berjalan!");
-        System.out.println("▶ Menandakan berita CURRENT (sedang ditampilkan)\n");
+        System.out.println("Menandakan berita CURRENT (sedang ditampilkan)\n");
         
         // Tampilkan penjelasan CDLL di awal
         daftarBerita.tampilPenjelasanCDLL();
@@ -586,15 +586,15 @@ public class TeksBerjalan {
                             if (konfirmasi.equalsIgnoreCase("y")) {
                                 daftarBerita.hapusBerita(nomorHapus, true);
                             } else {
-                                System.out.println("❌ Penghapusan dibatalkan.");
+                                System.out.println(" Penghapusan dibatalkan.");
                             }
                         } else {
-                            System.out.println("❌ Tidak ada berita untuk dihapus!");
+                            System.out.println(" Tidak ada berita untuk dihapus!");
                         }
                     }
                         
                     case 3 -> {
-                        System.out.println("\n⚠️  PERHATIAN: Akan menampilkan berita secara continuous.");
+                        System.out.println("\n  PERHATIAN: Akan menampilkan berita secara continuous.");
                         System.out.println("   Tekan ENTER kapan saja untuk menghentikan.");
                         System.out.print("   Tekan ENTER untuk memulai...");
                         scanner.nextLine();
@@ -602,7 +602,7 @@ public class TeksBerjalan {
                     }
                         
                     case 4 -> {
-                        System.out.println("\n⚠️  PERHATIAN: Akan menampilkan berita secara continuous.");
+                        System.out.println("\n  PERHATIAN: Akan menampilkan berita secara continuous.");
                         System.out.println("   Tekan ENTER kapan saja untuk menghentikan.");
                         System.out.print("   Tekan ENTER untuk memulai...");
                         scanner.nextLine();
@@ -616,7 +616,7 @@ public class TeksBerjalan {
                             int nomorTampil = scanner.nextInt();
                             daftarBerita.tampilBeritaTertentu(nomorTampil);
                         } else {
-                            System.out.println("❌ Tidak ada berita untuk ditampilkan!");
+                            System.out.println(" Tidak ada berita untuk ditampilkan!");
                         }
                     }
                         
@@ -629,21 +629,21 @@ public class TeksBerjalan {
                             int nomorCurrent = scanner.nextInt();
                             daftarBerita.setCurrent(nomorCurrent);
                         } else {
-                            System.out.println("❌ Tidak ada berita!");
+                            System.out.println(" Tidak ada berita!");
                         }
                     }
                         
                     case 8 -> daftarBerita.tampilPenjelasanCDLL();
                         
                     case 9 -> {
-                        System.out.println("\n✨ Terima kasih telah menggunakan program ini!");
-                        System.out.println("✨ Program teks berjalan selesai.");
+                        System.out.println("\n Terima kasih telah menggunakan program ini!");
+                        System.out.println(" Program teks berjalan selesai.");
                     }
                         
-                    default -> System.out.println("❌ Pilihan tidak valid! Silakan pilih 1-9.");
+                    default -> System.out.println(" Pilihan tidak valid! Silakan pilih 1-9.");
                 }
             } catch (InterruptedException e) {
-                System.out.println("⚠️ Terjadi gangguan pada sistem!");
+                System.out.println(" Terjadi gangguan pada sistem!");
             }
             
         } while (pilihan != 9);
