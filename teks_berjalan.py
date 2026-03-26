@@ -57,18 +57,18 @@ class CircularDoublyLinkedList:
             print("   HEAD.prev sekarang menunjuk ke TAIL yang baru")
         
         self.size += 1
-        print("✅ Berita berhasil ditambahkan!")
+        print(" Berita berhasil ditambahkan!")
         self.tampil_visual_linked_list()
         self.tampil_status_current()
     
     # Method untuk menampilkan visualisasi Circular Doubly Linked List
     def tampil_visual_linked_list(self):
         if self.head is None:
-            print("\n📊 VISUALISASI CIRCULAR DOUBLY LINKED LIST:")
+            print("\n VISUALISASI CIRCULAR DOUBLY LINKED LIST:")
             print("   [ KOSONG ]")
             return
         
-        print("\n📊 VISUALISASI CIRCULAR DOUBLY LINKED LIST:")
+        print("\n VISUALISASI CIRCULAR DOUBLY LINKED LIST:")
         print("   (prev ← [node] → next)")
         print()
         
@@ -83,7 +83,7 @@ class CircularDoublyLinkedList:
             print("\n   ┌─────────────────────────────────┐")
             print(f"   │         NODE {nomor}                  │")
             if temp.is_current:
-                print("   │         [CURRENT] ✅             │")
+                print("   │         [CURRENT]             │")
             print("   ├─────────────────────────────────┤")
             print(f"   │ prev: \"{temp.prev.berita}\"")
             print(f"   │ data: \"{temp.berita}\"")
@@ -99,7 +99,7 @@ class CircularDoublyLinkedList:
             nomor += 1
         
         # Tampilkan hubungan circular
-        print("\n   🔄 HUBUNGAN CIRCULAR:")
+        print("\n    HUBUNGAN CIRCULAR:")
         print(f"   TAIL.next → HEAD: \"{self.tail.next.berita}\"")
         print(f"   HEAD.prev → TAIL: \"{self.head.prev.berita}\"")
         print()
@@ -111,7 +111,7 @@ class CircularDoublyLinkedList:
         nomor = 1
         while True:
             if temp.is_current:
-                print(f"▶[{nomor}:{temp.berita}]◀", end="")
+                print(f"[{nomor}:{temp.berita}]", end="")
             else:
                 print(f" [{nomor}:{temp.berita}] ", end="")
             print(" ⇄ ", end="")
@@ -132,23 +132,23 @@ class CircularDoublyLinkedList:
     # Method untuk menampilkan status current
     def tampil_status_current(self):
         if self.current:
-            print(f"📌 Berita CURRENT saat ini: {self.current.berita}")
+            print(f" Berita CURRENT saat ini: {self.current.berita}")
         else:
-            print("📌 Tidak ada berita CURRENT")
+            print(" Tidak ada berita CURRENT")
     
     # Method untuk menampilkan detail berita yang akan dihapus
     def tampil_detail_berita_untuk_hapus(self, nomor):
         if self.head is None:
-            print("❌ Tidak ada berita untuk dihapus!")
+            print(" Tidak ada berita untuk dihapus!")
             return False
         
         if nomor < 1 or nomor > self.size:
-            print("❌ Nomor urut tidak valid!")
+            print(" Nomor urut tidak valid!")
             return False
         
         node_to_delete = self.get_node_by_nomor(nomor)
         
-        print("\n🔧 PROSES HAPUS BERTA:")
+        print("\n PROSES HAPUS BERTA:")
         print(f"   Mencari node nomor {nomor}...")
         print(f"   Ditemukan node dengan data: \"{node_to_delete.berita}\"")
         
@@ -158,7 +158,7 @@ class CircularDoublyLinkedList:
         print("╠════════════════════════════════════╣")
         print(f"║ Nomor urut : {nomor}                       ║")
         if node_to_delete.is_current:
-            print("║ Status     : CURRENT ✅             ║")
+            print("║ Status     : CURRENT              ║")
         else:
             print("║ Status     : -                      ║")
         print("╠════════════════════════════════════╣")
@@ -174,14 +174,14 @@ class CircularDoublyLinkedList:
     # Method untuk menghapus berita berdasarkan nomor urut
     def hapus_berita(self, nomor):
         if self.head is None:
-            print("❌ Tidak ada berita untuk dihapus!")
+            print(" Tidak ada berita untuk dihapus!")
             return False
         
         if nomor < 1 or nomor > self.size:
-            print("❌ Nomor urut tidak valid!")
+            print(" Nomor urut tidak valid!")
             return False
         
-        print("\n🔧 PROSES EKSEKUSI HAPUS:")
+        print("\n PROSES EKSEKUSI HAPUS:")
         node_to_delete = self.get_node_by_nomor(nomor)
         berita_yang_dihapus = node_to_delete.berita
         is_current_deleted = node_to_delete.is_current
@@ -225,14 +225,14 @@ class CircularDoublyLinkedList:
                     print(f"   CURRENT berpindah ke: \"{self.current.berita}\"")
         
         self.size -= 1
-        print("\n✅ Berita nomor", nomor, "BERHASIL DIHAPUS!")
-        print(f"📝 Berita yang dihapus: {berita_yang_dihapus}")
+        print("\n Berita nomor", nomor, "BERHASIL DIHAPUS!")
+        print(f" Berita yang dihapus: {berita_yang_dihapus}")
         
         if self.size > 0:
             self.tampil_visual_linked_list()
             self.tampil_status_current()
         else:
-            print("\n📊 VISUALISASI CIRCULAR DOUBLY LINKED LIST:")
+            print("\n VISUALISASI CIRCULAR DOUBLY LINKED LIST:")
             print("   [ KOSONG ]")
         
         return True
@@ -254,7 +254,7 @@ class CircularDoublyLinkedList:
     # Method untuk menampilkan berita secara CONTINUOUS FORWARD (tidak berhenti)
     def tampil_forward_continuous(self):
         if self.head is None:
-            print("❌ Tidak ada berita untuk ditampilkan!")
+            print(" Tidak ada berita untuk ditampilkan!")
             return
         
         print("\n╔════════════════════════════════════╗")
@@ -263,7 +263,7 @@ class CircularDoublyLinkedList:
         print("║         UNTUK BERHENTI)            ║")
         print("╚════════════════════════════════════╝")
         
-        print("\n🔄 PROSES TRAVERSAL FORWARD:")
+        print("\n PROSES TRAVERSAL FORWARD:")
         print("   Bergerak menggunakan pointer next")
         print("   Akan terus berputar (circular)")
         
@@ -289,7 +289,7 @@ class CircularDoublyLinkedList:
                         break
                     
                     if temp.is_current:
-                        print("▶ ", end="")
+                        print(" ", end="")
                     else:
                         print("  ", end="")
                     print(f"Berita ke-{nomor}: {temp.berita}")
@@ -312,14 +312,14 @@ class CircularDoublyLinkedList:
         except KeyboardInterrupt:
             self.running = False
         
-        print(f"\n⏹️  Perputaran berita dihentikan oleh user.")
+        print(f"\n  Perputaran berita dihentikan oleh user.")
         print(f"   Total {putaran-1} putaran selesai")
         print("══════════════ SELESAI ══════════════\n")
     
     # Method untuk menampilkan berita secara CONTINUOUS BACKWARD (tidak berhenti)
     def tampil_backward_continuous(self):
         if self.head is None:
-            print("❌ Tidak ada berita untuk ditampilkan!")
+            print(" Tidak ada berita untuk ditampilkan!")
             return
         
         print("\n╔════════════════════════════════════╗")
@@ -328,7 +328,7 @@ class CircularDoublyLinkedList:
         print("║         UNTUK BERHENTI)            ║")
         print("╚════════════════════════════════════╝")
         
-        print("\n🔄 PROSES TRAVERSAL BACKWARD:")
+        print("\n PROSES TRAVERSAL BACKWARD:")
         print("   Bergerak menggunakan pointer prev")
         print("   Akan terus berputar (circular)")
         
@@ -354,7 +354,7 @@ class CircularDoublyLinkedList:
                         break
                     
                     if temp.is_current:
-                        print("◀ ", end="")
+                        print(" ", end="")
                     else:
                         print("  ", end="")
                     print(f"Berita ke-{nomor}: {temp.berita}")
@@ -377,21 +377,21 @@ class CircularDoublyLinkedList:
         except KeyboardInterrupt:
             self.running = False
         
-        print(f"\n⏹️  Perputaran berita dihentikan oleh user.")
+        print(f"\n  Perputaran berita dihentikan oleh user.")
         print(f"   Total {putaran-1} putaran selesai")
         print("══════════════ SELESAI ══════════════\n")
     
     # Method untuk menampilkan berita tertentu
     def tampil_berita_tertentu(self, nomor):
         if self.head is None:
-            print("❌ Tidak ada berita!")
+            print("Tidak ada berita!")
             return
         
         if nomor < 1 or nomor > self.size:
-            print("❌ Nomor urut tidak valid!")
+            print(" Nomor urut tidak valid!")
             return
         
-        print("\n🔍 PROSES PENCARIAN:")
+        print("\n PROSES PENCARIAN:")
         print(f"   Mencari node nomor {nomor}...")
         
         node_to_show = self.get_node_by_nomor(nomor)
@@ -412,14 +412,14 @@ class CircularDoublyLinkedList:
     # Method untuk mengubah current ke nomor tertentu
     def set_current(self, nomor):
         if self.head is None:
-            print("❌ Tidak ada berita!")
+            print(" Tidak ada berita!")
             return
         
         if nomor < 1 or nomor > self.size:
-            print("❌ Nomor urut tidak valid!")
+            print(" Nomor urut tidak valid!")
             return
         
-        print("\n🔄 PROSES UPDATE CURRENT:")
+        print("\n PROSES UPDATE CURRENT:")
         print(f"   Current lama: \"{self.current.berita if self.current else 'tidak ada'}\"")
         
         # Hapus tanda current dari node sebelumnya
@@ -432,7 +432,7 @@ class CircularDoublyLinkedList:
         self.current.is_current = True
         
         print(f"   Memberikan status CURRENT ke node \"{self.current.berita}\"")
-        print(f"✅ Current berpindah ke berita nomor {nomor}")
+        print(f" Current berpindah ke berita nomor {nomor}")
         
         self.tampil_visual_linked_list()
         self.tampil_status_current()
@@ -440,35 +440,35 @@ class CircularDoublyLinkedList:
     # Method untuk menampilkan semua berita
     def tampil_semua_berita(self):
         if self.head is None:
-            print("❌ Tidak ada berita!")
+            print("Tidak ada berita!")
             return
         
         self.tampil_visual_linked_list()
     
     # Method untuk menampilkan penjelasan Circular Doubly Linked List
     def tampil_penjelasan_cdll(self):
-        print("\n📚 PENJELASAN CIRCULAR DOUBLY LINKED LIST:")
+        print("\n PENJELASAN CIRCULAR DOUBLY LINKED LIST:")
         print("==========================================")
         print("Circular Doubly Linked List adalah struktur data linear dimana:")
         print()
-        print("1️⃣  DOUBLY LINKED:")
+        print("1️  DOUBLY LINKED:")
         print("   • Setiap node memiliki 2 pointer: prev dan next")
         print("   • prev → menunjuk ke node sebelumnya")
         print("   • next → menunjuk ke node setelahnya")
         print("   • Memungkinkan traversal 2 arah (maju & mundur)")
         print()
-        print("2️⃣  CIRCULAR:")
+        print("2️  CIRCULAR:")
         print("   • Node terakhir (TAIL) menunjuk ke node pertama (HEAD)")
         print("   • Node pertama (HEAD) juga menunjuk ke node terakhir (TAIL)")
         print("   • Tidak ada node yang menunjuk ke NULL")
         print("   • Membentuk lingkaran/cycle")
         print()
-        print("3️⃣  KEUNGGULAN:")
+        print("3️  KEUNGGULAN:")
         print("   • Traversal maju & mundur mudah")
         print("   • Insert & delete di awal/akhir cepat (O(1))")
         print("   • Cocok untuk aplikasi yang memerlukan perputaran (seperti teks berjalan)")
         print()
-        print("4️⃣  IMPLEMENTASI DI PROGRAM INI:")
+        print("4️  IMPLEMENTASI DI PROGRAM INI:")
         print("   • Setiap node menyimpan teks berita")
         print("   • Ada pointer CURRENT untuk berita yang sedang 'on air'")
         print("   • Traversal forward menggunakan pointer next")
@@ -497,7 +497,7 @@ def main():
     print("║    (Circular Doubly Linked List)  ║")
     print("╚════════════════════════════════════╝")
     print("Selamat datang di program teks berjalan!")
-    print("▶ Menandakan berita CURRENT (sedang ditampilkan)\n")
+    print(" Menandakan berita CURRENT (sedang ditampilkan)\n")
     
     # Tampilkan penjelasan CDLL di awal
     daftar_berita.tampil_penjelasan_cdll()
@@ -538,18 +538,18 @@ def main():
                         if konfirmasi.lower() == 'y':
                             daftar_berita.hapus_berita(nomor_hapus)
                         else:
-                            print("❌ Penghapusan dibatalkan.")
+                            print(" Penghapusan dibatalkan.")
                 else:
-                    print("❌ Tidak ada berita untuk dihapus!")
+                    print(" Tidak ada berita untuk dihapus!")
                     
             elif pilihan == 3:
-                print("\n⚠️  PERHATIAN: Akan menampilkan berita secara continuous.")
+                print("\n  PERHATIAN: Akan menampilkan berita secara continuous.")
                 print("   Tekan 'Q' kapan saja untuk menghentikan.")
                 input("   Tekan ENTER untuk memulai...")
                 daftar_berita.tampil_forward_continuous()
                 
             elif pilihan == 4:
-                print("\n⚠️  PERHATIAN: Akan menampilkan berita secara continuous.")
+                print("\n  PERHATIAN: Akan menampilkan berita secara continuous.")
                 print("   Tekan 'Q' kapan saja untuk menghentikan.")
                 input("   Tekan ENTER untuk memulai...")
                 daftar_berita.tampil_backward_continuous()
@@ -560,7 +560,7 @@ def main():
                     nomor_tampil = int(input("\nMasukkan nomor berita yang ingin ditampilkan: "))
                     daftar_berita.tampil_berita_tertentu(nomor_tampil)
                 else:
-                    print("❌ Tidak ada berita untuk ditampilkan!")
+                    print(" Tidak ada berita untuk ditampilkan!")
                     
             elif pilihan == 6:
                 daftar_berita.tampil_semua_berita()
@@ -571,26 +571,26 @@ def main():
                     nomor_current = int(input("\nMasukkan nomor berita untuk dijadikan CURRENT: "))
                     daftar_berita.set_current(nomor_current)
                 else:
-                    print("❌ Tidak ada berita!")
+                    print(" Tidak ada berita!")
                     
             elif pilihan == 8:
                 daftar_berita.tampil_penjelasan_cdll()
                 
             elif pilihan == 9:
-                print("\n✨ Terima kasih telah menggunakan program ini!")
-                print("✨ Program teks berjalan selesai.")
+                print("\n Terima kasih telah menggunakan program ini!")
+                print(" Program teks berjalan selesai.")
                 break
                 
             else:
-                print("❌ Pilihan tidak valid! Silakan pilih 1-9.")
+                print(" Pilihan tidak valid! Silakan pilih 1-9.")
                 
         except ValueError:
-            print("❌ Input tidak valid! Masukkan angka.")
+            print(" Input tidak valid! Masukkan angka.")
         except KeyboardInterrupt:
-            print("\n\n⚠️ Program dihentikan oleh user.")
+            print("\n\n Program dihentikan oleh user.")
             break
         except Exception as e:
-            print(f"❌ Terjadi kesalahan: {e}")
+            print(f" Terjadi kesalahan: {e}")
 
 if __name__ == "__main__":
     main()
