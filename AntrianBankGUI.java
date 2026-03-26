@@ -30,7 +30,7 @@ public class AntrianBankGUI extends JFrame {
         antrianQueue = new LinkedList<>();
         
         // Setting frame
-        setTitle("🏦 SISTEM ANTRIAN BANK");
+        setTitle(" SISTEM ANTRIAN BANK");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -51,7 +51,7 @@ public class AntrianBankGUI extends JFrame {
         mainPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         
         // Title
-        JLabel titleLabel = new JLabel("🏦 SISTEM ANTRIAN BANK", SwingConstants.CENTER);
+        JLabel titleLabel = new JLabel(" SISTEM ANTRIAN BANK", SwingConstants.CENTER);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
         titleLabel.setForeground(new Color(236, 240, 241));
         mainPanel.add(titleLabel, BorderLayout.NORTH);
@@ -71,7 +71,7 @@ public class AntrianBankGUI extends JFrame {
         txtNama = new JTextField(20);
         txtNama.setFont(new Font("Arial", Font.PLAIN, 12));
         
-        JButton btnAmbil = createButton("📋 Ambil Antrian", new Color(39, 174, 96));
+        JButton btnAmbil = createButton(" Ambil Antrian", new Color(39, 174, 96));
         btnAmbil.addActionListener(e -> ambilAntrian());
         
         inputPanel.add(lblNama);
@@ -82,13 +82,13 @@ public class AntrianBankGUI extends JFrame {
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
         buttonPanel.setBackground(new Color(44, 62, 80));
         
-        JButton btnTampil = createButton("👥 Tampilkan Antrian", new Color(52, 152, 219));
+        JButton btnTampil = createButton(" Tampilkan Antrian", new Color(52, 152, 219));
         btnTampil.addActionListener(e -> tampilkanAntrian());
         
-        JButton btnPanggil = createButton("📢 Panggil Antrian", new Color(230, 126, 34));
+        JButton btnPanggil = createButton("Panggil Antrian", new Color(230, 126, 34));
         btnPanggil.addActionListener(e -> panggilAntrian());
         
-        JButton btnReset = createButton("🔄 Reset", new Color(231, 76, 60));
+        JButton btnReset = createButton(" Reset", new Color(231, 76, 60));
         btnReset.addActionListener(e -> resetAntrian());
         
         buttonPanel.add(btnTampil);
@@ -197,7 +197,7 @@ public class AntrianBankGUI extends JFrame {
         Antrian antrianDipanggil = antrianQueue.poll();
         antrianDipanggil.status = "Dipanggil";
         
-        String pesan = String.format("📢 MEMANGGIL ANTRIAN\nNomor: %d\nNama: %s", 
+        String pesan = String.format(" MEMANGGIL ANTRIAN\nNomor: %d\nNama: %s", 
             antrianDipanggil.nomor, antrianDipanggil.nama);
         
         JOptionPane.showMessageDialog(this, pesan, "Panggilan Antrian", 
