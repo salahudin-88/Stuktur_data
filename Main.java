@@ -129,14 +129,14 @@ class EvaluatorEkspresi {
             
             if (isDigit(c)) {
                 postfix.append(c);
-                System.out.println("\n📌 Operand ditemukan: " + c);
+                System.out.println("\n Operand ditemukan: " + c);
                 System.out.println("   Postfix sementara: " + postfix);
             }
             else if (c == '(') {
                 operatorStack.push(c);
             }
             else if (c == ')') {
-                System.out.println("\n📌 Menemukan ')', pop sampai '('");
+                System.out.println("\n Menemukan ')', pop sampai '('");
                 while (!operatorStack.isEmpty() && operatorStack.peek() != '(') {
                     postfix.append(operatorStack.pop());
                 }
@@ -146,7 +146,7 @@ class EvaluatorEkspresi {
                 System.out.println("   Postfix setelah ) : " + postfix);
             }
             else if (isOperator(c)) {
-                System.out.println("\n📌 Operator ditemukan: " + c);
+                System.out.println("\n Operator ditemukan: " + c);
                 while (!operatorStack.isEmpty() && operatorStack.peek() != '(' && 
                        getPriority(operatorStack.peek()) >= getPriority(c)) {
                     postfix.append(operatorStack.pop());
@@ -156,13 +156,13 @@ class EvaluatorEkspresi {
             }
         }
         
-        System.out.println("\n📌 Mengeluarkan sisa operator dalam stack");
+        System.out.println("\n Mengeluarkan sisa operator dalam stack");
         while (!operatorStack.isEmpty()) {
             postfix.append(operatorStack.pop());
         }
         
         String result = postfix.toString();
-        System.out.println("\n✅ HASIL POSTFIX: " + result);
+        System.out.println("\n HASIL POSTFIX: " + result);
         return result;
     }
     
@@ -181,7 +181,7 @@ class EvaluatorEkspresi {
                 evaluasiStack.push(num);
             }
             else if (isOperator(c)) {
-                System.out.println("\n📌 Menemukan operator: " + c);
+                System.out.println("\n Menemukan operator: " + c);
                 int operand2 = evaluasiStack.pop();
                 int operand1 = evaluasiStack.pop();
                 int result = 0;
@@ -189,26 +189,26 @@ class EvaluatorEkspresi {
                 switch (c) {
                     case '+' -> {
                         result = operand1 + operand2;
-                        System.out.println("   🔢 " + operand1 + " + " + operand2 + " = " + result);
+                        System.out.println("   " + operand1 + " + " + operand2 + " = " + result);
                     }
                     case '-' -> {
                         result = operand1 - operand2;
-                        System.out.println("   🔢 " + operand1 + " - " + operand2 + " = " + result);
+                        System.out.println("   " + operand1 + " - " + operand2 + " = " + result);
                     }
                     case '*' -> {
                         result = operand1 * operand2;
-                        System.out.println("   🔢 " + operand1 + " * " + operand2 + " = " + result);
+                        System.out.println("   " + operand1 + " * " + operand2 + " = " + result);
                     }
                     case '/' -> {
                         if (operand2 == 0) {
                             throw new ArithmeticException("Pembagian dengan nol!");
                         }
                         result = operand1 / operand2;
-                        System.out.println("   🔢 " + operand1 + " / " + operand2 + " = " + result);
+                        System.out.println("   " + operand1 + " / " + operand2 + " = " + result);
                     }
                     case '^' -> {
                         result = (int) Math.pow(operand1, operand2);
-                        System.out.println("   🔢 " + operand1 + " ^ " + operand2 + " = " + result);
+                        System.out.println("   " + operand1 + " ^ " + operand2 + " = " + result);
                     }
                 }
                 
@@ -217,16 +217,16 @@ class EvaluatorEkspresi {
         }
         
         int finalResult = evaluasiStack.pop();
-        System.out.println("\n✅ HASIL AKHIR: " + finalResult);
+        System.out.println("\n HASIL AKHIR: " + finalResult);
         return finalResult;
     }
     
     public void evaluasiEkspresi(String infix) {
-        System.out.println("\n📝 Ekspresi Infix: " + infix);
+        System.out.println("\n Ekspresi Infix: " + infix);
         
         try {
             String postfix = infixToPostfix(infix);
-            System.out.println("\n📊 Ekspresi Postfix: " + postfix);
+            System.out.println("\n Ekspresi Postfix: " + postfix);
             
             int hasil = evaluatePostfix(postfix);
             lastResult = String.valueOf(hasil);
@@ -238,7 +238,7 @@ class EvaluatorEkspresi {
             System.out.println("╚══════════════════════════════════════╝");
             
         } catch (Exception e) {
-            System.out.println("\n❌ ERROR: " + e.getMessage());
+            System.out.println("\n ERROR: " + e.getMessage());
         }
     }
     
@@ -265,7 +265,7 @@ class EvaluatorEkspresi {
     }
     
     public void showInfo() {
-        System.out.println("\n📌 INFORMASI STACK:");
+        System.out.println("\n INFORMASI STACK:");
         System.out.println("   • Menggunakan Singly Linked List");
         System.out.println("   • Setiap node memiliki data dan pointer ke node berikutnya");
         System.out.println("   • Operasi Push: Tambah node di awal (TOP)");
@@ -274,7 +274,7 @@ class EvaluatorEkspresi {
     }
     
     public void showExamples() {
-        System.out.println("\n📚 CONTOH EKSPRESI:");
+        System.out.println("\n CONTOH EKSPRESI:");
         System.out.println("   1. 3+5*2      = " + (3+5*2));
         System.out.println("   2. (3+5)*2    = " + ((3+5)*2));
         System.out.println("   3. 10-4/2     = " + (10-4/2));
@@ -297,7 +297,7 @@ public class Main {
             
             do {
                 evaluator.displayMenu();
-                System.out.print("➤ Pilih menu (0-5): ");
+                System.out.print(" Pilih menu (0-5): ");
                 
                 try {
                     pilihan = scanner.nextInt();
@@ -305,14 +305,14 @@ public class Main {
                     
                     switch (pilihan) {
                         case 1 -> {
-                            System.out.print("\n📝 Masukkan ekspresi infix: ");
+                            System.out.print("\n Masukkan ekspresi infix: ");
                             String infix = scanner.nextLine();
                             evaluator.evaluasiEkspresi(infix);
                         }
                         
                         case 2 -> {
-                            System.out.println("\n📌 Hasil sebelumnya: " + evaluator.getLastResult());
-                            System.out.print("📝 Masukkan ekspresi (gunakan 'x' untuk hasil sebelumnya): ");
+                            System.out.println("\n Hasil sebelumnya: " + evaluator.getLastResult());
+                            System.out.print(" Masukkan ekspresi (gunakan 'x' untuk hasil sebelumnya): ");
                             String expr = scanner.nextLine();
                             
                             // Replace 'x' dengan hasil sebelumnya
@@ -327,16 +327,16 @@ public class Main {
                         
                         case 5 -> {
                             evaluator.setLastResult("0");
-                            System.out.println("\n✅ Semua data telah direset!");
+                            System.out.println("\n Semua data telah direset!");
                         }
                         
-                        case 0 -> System.out.println("\n👋 Terima kasih telah menggunakan program ini!");
+                        case 0 -> System.out.println("\n Terima kasih telah menggunakan program ini!");
                         
-                        default -> System.out.println("\n❌ Pilihan tidak valid!");
+                        default -> System.out.println("\n Pilihan tidak valid!");
                     }
                     
                 } catch (Exception e) {
-                    System.out.println("\n❌ Input tidak valid: " + e.getMessage());
+                    System.out.println("\n Input tidak valid: " + e.getMessage());
                     scanner.nextLine(); // clear buffer
                     pilihan = -1;
                 }
