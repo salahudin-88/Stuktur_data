@@ -40,7 +40,7 @@ class LinkedListStack:
     def clear(self):
         self.top = None
         self.size = 0
-        print("\n✅ Stack telah dikosongkan")
+        print("\n Stack telah dikosongkan")
     
     def display_stack(self, action=""):
         if action:
@@ -90,14 +90,14 @@ class EvaluatorEkspresi:
             
             if self.is_digit(c):
                 postfix.append(c)
-                print(f"\n📌 Operand ditemukan: {c}")
+                print(f"\n Operand ditemukan: {c}")
                 print(f"   Postfix sementara: {''.join(postfix)}")
             
             elif c == '(':
                 self.operator_stack.push(c)
             
             elif c == ')':
-                print("\n📌 Menemukan ')', pop sampai '('")
+                print("\n Menemukan ')', pop sampai '('")
                 while (not self.operator_stack.is_empty() and 
                        self.operator_stack.peek() != '('):
                     postfix.append(self.operator_stack.pop())
@@ -109,7 +109,7 @@ class EvaluatorEkspresi:
                 print(f"   Postfix setelah ) : {''.join(postfix)}")
             
             elif self.is_operator(c):
-                print(f"\n📌 Operator ditemukan: {c}")
+                print(f"\n Operator ditemukan: {c}")
                 while (not self.operator_stack.is_empty() and 
                        self.operator_stack.peek() != '(' and 
                        self.get_priority(self.operator_stack.peek()) >= self.get_priority(c)):
@@ -118,12 +118,12 @@ class EvaluatorEkspresi:
                 self.operator_stack.push(c)
                 print(f"   Postfix sementara: {''.join(postfix)}")
         
-        print("\n📌 Mengeluarkan sisa operator dalam stack")
+        print("\n Mengeluarkan sisa operator dalam stack")
         while not self.operator_stack.is_empty():
             postfix.append(self.operator_stack.pop())
         
         result = ''.join(postfix)
-        print(f"\n✅ HASIL POSTFIX: {result}")
+        print(f"\n HASIL POSTFIX: {result}")
         return result
     
     def evaluate_postfix(self, postfix):
@@ -145,34 +145,34 @@ class EvaluatorEkspresi:
                 
                 if c == '+':
                     result = operand1 + operand2
-                    print(f"   🔢 {operand1} + {operand2} = {result}")
+                    print(f"    {operand1} + {operand2} = {result}")
                 elif c == '-':
                     result = operand1 - operand2
-                    print(f"   🔢 {operand1} - {operand2} = {result}")
+                    print(f"    {operand1} - {operand2} = {result}")
                 elif c == '*':
                     result = operand1 * operand2
-                    print(f"   🔢 {operand1} * {operand2} = {result}")
+                    print(f"    {operand1} * {operand2} = {result}")
                 elif c == '/':
                     if operand2 == 0:
                         raise Exception("Pembagian dengan nol!")
                     result = operand1 // operand2
-                    print(f"   🔢 {operand1} / {operand2} = {result}")
+                    print(f"    {operand1} / {operand2} = {result}")
                 elif c == '^':
                     result = operand1 ** operand2
-                    print(f"   🔢 {operand1} ^ {operand2} = {result}")
+                    print(f"    {operand1} ^ {operand2} = {result}")
                 
                 self.evaluasi_stack.push(result)
         
         final_result = self.evaluasi_stack.pop()
-        print(f"\n✅ HASIL AKHIR: {final_result}")
+        print(f"\n HASIL AKHIR: {final_result}")
         return final_result
     
     def evaluasi_ekspresi(self, infix):
-        print(f"\n📝 Ekspresi Infix: {infix}")
+        print(f"\n Ekspresi Infix: {infix}")
         
         try:
             postfix = self.infix_to_postfix(infix)
-            print(f"\n📊 Ekspresi Postfix: {postfix}")
+            print(f"\n Ekspresi Postfix: {postfix}")
             
             hasil = self.evaluate_postfix(postfix)
             self.last_result = str(hasil)
@@ -184,7 +184,7 @@ class EvaluatorEkspresi:
             print("╚══════════════════════════════════════╝")
             
         except Exception as e:
-            print(f"\n❌ ERROR: {e}")
+            print(f"\n ERROR: {e}")
     
     def get_last_result(self):
         return self.last_result
@@ -206,7 +206,7 @@ class EvaluatorEkspresi:
         print("╚════════════════════════════════════════════╝")
     
     def show_info(self):
-        print("\n📌 INFORMASI STACK:")
+        print("\n INFORMASI STACK:")
         print("   • Menggunakan Singly Linked List")
         print("   • Setiap node memiliki data dan pointer ke node berikutnya")
         print("   • Operasi Push: Tambah node di awal (TOP)")
@@ -215,7 +215,7 @@ class EvaluatorEkspresi:
         print("   • Representasi Stack: TOP -> node1 -> node2 -> ...")
     
     def show_examples(self):
-        print("\n📚 CONTOH EKSPRESI:")
+        print("\n CONTOH EKSPRESI:")
         print("   1. 3+5*2      =", 3+5*2)
         print("   2. (3+5)*2    =", (3+5)*2)
         print("   3. 10-4/2     =", 10-4//2)
@@ -236,21 +236,21 @@ def main():
         evaluator.display_menu()
         
         try:
-            pilihan = input("➤ Pilih menu (0-5): ").strip()
+            pilihan = input(" Pilih menu (0-5): ").strip()
             
             if not pilihan.isdigit():
-                print("\n❌ Input harus angka!")
+                print("\n Input harus angka!")
                 continue
             
             pilihan = int(pilihan)
             
             if pilihan == 1:
-                infix = input("\n📝 Masukkan ekspresi infix: ")
+                infix = input("\n Masukkan ekspresi infix: ")
                 evaluator.evaluasi_ekspresi(infix)
             
             elif pilihan == 2:
-                print(f"\n📌 Hasil sebelumnya: {evaluator.get_last_result()}")
-                expr = input("📝 Masukkan ekspresi (gunakan 'x' untuk hasil sebelumnya): ")
+                print(f"\n Hasil sebelumnya: {evaluator.get_last_result()}")
+                expr = input(" Masukkan ekspresi (gunakan 'x' untuk hasil sebelumnya): ")
                 
                 # Replace 'x' dengan hasil sebelumnya
                 expr = expr.replace('x', evaluator.get_last_result())
@@ -265,17 +265,17 @@ def main():
             
             elif pilihan == 5:
                 evaluator.set_last_result("0")
-                print("\n✅ Semua data telah direset!")
+                print("\n Semua data telah direset!")
             
             elif pilihan == 0:
-                print("\n👋 Terima kasih telah menggunakan program ini!")
+                print("\n Terima kasih telah menggunakan program ini!")
                 break
             
             else:
-                print("\n❌ Pilihan tidak valid!")
+                print("\n Pilihan tidak valid!")
         
         except Exception as e:
-            print(f"\n❌ Error: {e}")
+            print(f"\n Error: {e}")
 
 
 if __name__ == "__main__":
