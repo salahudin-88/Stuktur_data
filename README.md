@@ -1,4 +1,4 @@
-# Sistem-antirian-bank
+# Sistem-antirian-bank.py
 import tkinter as tk
 from tkinter import messagebox, ttk
 import pygame
@@ -57,7 +57,7 @@ class AntrianBank:
         main_frame.pack(fill=tk.BOTH, expand=True, padx=20, pady=20)
         
         # Judul dengan animasi
-        judul = tk.Label(main_frame, text="🏦 SISTEM ANTRIAN BANK DENGAN SUARA 🏦", 
+        judul = tk.Label(main_frame, text="SISTEM ANTRIAN BANK DENGAN SUARA", 
                         font=("Arial", 20, "bold"), 
                         bg=self.warna_bg, fg=self.warna_text)
         judul.pack(pady=10)
@@ -73,14 +73,14 @@ class AntrianBank:
         self.entry_nama.grid(row=0, column=1, padx=5)
         self.entry_nama.bind('<Return>', lambda e: self.ambil_antrian())
         
-        btn_ambil = tk.Button(input_frame, text="📋 Ambil Antrian", 
+        btn_ambil = tk.Button(input_frame, text="Ambil Antrian", 
                             command=self.ambil_antrian,
                             font=("Arial", 12, "bold"), bg="#27ae60", fg="white",
                             padx=20, pady=10, cursor="hand2")
         btn_ambil.grid(row=0, column=2, padx=10)
         
         # Frame untuk pengaturan suara
-        sound_frame = tk.LabelFrame(main_frame, text="🔊 Pengaturan Suara", 
+        sound_frame = tk.LabelFrame(main_frame, text="Pengaturan Suara", 
                                    font=("Arial", 10, "bold"),
                                    bg=self.warna_bg, fg=self.warna_text,
                                    padx=10, pady=10)
@@ -118,10 +118,10 @@ class AntrianBank:
         button_frame.pack(pady=10)
         
         buttons = [
-            ("👥 Tampilkan Antrian", "#3498db", self.tampilkan_antrian),
-            ("📢 Panggil Antrian", "#e67e22", self.panggil_antrian),
-            ("🔁 Panggil Ulang", "#f39c12", self.panggil_ulang),
-            ("🔄 Reset", "#e74c3c", self.reset_antrian)
+            ("Tampilkan Antrian", "#3498db", self.tampilkan_antrian),
+            ("Panggil Antrian", "#e67e22", self.panggil_antrian),
+            ("Panggil Ulang", "#f39c12", self.panggil_ulang),
+            ("Reset", "#e74c3c", self.reset_antrian)
         ]
         
         for text, color, command in buttons:
@@ -140,7 +140,7 @@ class AntrianBank:
         
         # Tab Antrian Aktif
         active_frame = tk.Frame(notebook, bg="white")
-        notebook.add(active_frame, text="📋 Antrian Aktif")
+        notebook.add(active_frame, text="Antrian Aktif")
         
         # Treeview untuk antrian aktif
         columns = ('No', 'Nama', 'Waktu Ambil', 'Status')
@@ -166,7 +166,7 @@ class AntrianBank:
         
         # Tab Riwayat Panggilan
         history_frame = tk.Frame(notebook, bg="white")
-        notebook.add(history_frame, text="📜 Riwayat Panggilan")
+        notebook.add(history_frame, text="Riwayat Panggilan")
         
         columns_history = ('No', 'Nama', 'Waktu Panggil')
         self.tree_history = ttk.Treeview(history_frame, columns=columns_history,
@@ -196,13 +196,13 @@ class AntrianBank:
                                      bg=self.warna_bg, fg="#f1c40f")
         self.status_label.pack(side=tk.LEFT, padx=10)
         
-        self.suara_status = tk.Label(info_frame, text="🔊 Suara: Aktif", 
+        self.suara_status = tk.Label(info_frame, text="Suara: Aktif", 
                                      font=("Arial", 10),
                                      bg=self.warna_bg, fg="#2ecc71")
         self.suara_status.pack(side=tk.RIGHT, padx=10)
         
         # Display panggilan sekarang
-        self.now_calling = tk.Label(main_frame, text="⏳ Menunggu panggilan...",
+        self.now_calling = tk.Label(main_frame, text="Menunggu panggilan...",
                                    font=("Arial", 16, "bold"),
                                    bg="#34495e", fg="#ecf0f1",
                                    pady=10)
@@ -229,7 +229,7 @@ class AntrianBank:
                         self.engine.setProperty('voice', voice.id)
                         break
             
-            self.suara_status.config(text=f"🔊 Suara: {suara.capitalize()}")
+            self.suara_status.config(text=f"Suara: {suara.capitalize()}")
             
         except Exception as e:
             print(f"Error ganti suara: {e}")
@@ -263,7 +263,7 @@ class AntrianBank:
         threading.Thread(target=self.suara_ambil_antrian, 
                         args=(self.nomor_terakhir, nama), daemon=True).start()
         
-        messagebox.showinfo("Sukses", f"✅ Antrian berhasil diambil!\nNomor: {self.nomor_terakhir}\nNama: {nama}")
+        messagebox.showinfo("Sukses", f"Antrian berhasil diambil!\nNomor: {self.nomor_terakhir}\nNama: {nama}")
         self.tampilkan_antrian()
     
     def suara_ambil_antrian(self, nomor, nama):
@@ -391,7 +391,7 @@ class AntrianBank:
             self.daftar_antrian.clear()
             self.antrian_dipanggil.clear()
             self.nomor_terakhir = 0
-            self.now_calling.config(text="⏳ Menunggu panggilan...")
+            self.now_calling.config(text="Menunggu panggilan...")
             self.tampilkan_antrian()
             
             # Suara reset
